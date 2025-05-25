@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call of Dutty Zombies</title>
+    <link rel="stylesheet" href="../styles.css">
+    
+    <link rel="icon" href="../assets/images/favicoon.png" type="image/png">
+    <!-- Añade el estilo de la fuente personalizada -->
+    <style>
+        @font-face {
+            font-family: 'ND Logos Regular';
+            src: url('../assets/Fonts/ND LOGOS REGULAR.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html">
+            <img src="../assets/images/banner.png" alt="DraxGames Banner">
+        </a>
+    </header>
+
+    <nav>
+        <a href="../index.html" class="inicio-btn">Inicio</a>
+    </nav>
+
+    <main>
+        <div class="main-container">
+            <section class="game-details">
+                <h1>Call of Dutty Zombies</h1>
+                <p>Es una recreación de Call of Duty para ser editado en Gdevelop.</p>
+                <div class="game-preview">
+                    <iframe id="gameFrame" src="../assets/Juegos/CallOfDutty/index.html" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="btn-container">
+                    <button class="fullscreen-btn" onclick="toggleFullscreen()">Pantalla Completa</button>
+                    <a href="https://draxgames.itch.io/codz-gdevelop-template" target="_blank"><button>Descargar</button></a>
+                    <a href="https://draxgames.itch.io/codz-gdevelop-template" target="_blank"><button>Comprar</button></a>
+                </div>
+            </section>
+            <aside class="sidebar">
+                <h2>Otros Juegos</h2>
+                <ul>
+                    <li>
+                        <img src="../assets/images/super mario bross.png" alt="Super Mario Bros">
+                        <a href="super-mario-bros.html">Super Mario Bros</a>
+                    </li>
+                    <li>
+                        <img src="../assets/images/protect the egg.png" alt="Protect the Egg">
+                        <a href="protect-the-egg.html">Protect the Egg</a>
+                    </li>
+                    <li>
+                        <img src="../assets/images/Pixel monsters.png" alt="Pixel Monsters">
+                        <a href="pixel-monsters.html">Pixel Monsters</a>
+                    </li>
+                    <li>
+                        <img src="../assets/images/minecraft.png" alt="Minecraft Gdevelop">
+                        <a href="minecraft-gdevelop.html">Minecraft Gdevelop</a>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+        <div class="comments">
+            <h2>Comentarios</h2>
+            <div id="comments-container"></div>
+        
+            <div id="comentar-form" style="margin-top:20px;">
+                <textarea id="comment-input" placeholder="Escribe un comentario..."></textarea>
+                <button onclick="enviarComentario()">Enviar</button>
+            </div>
+        
+            <div style="margin-top:20px;">
+                <button onclick="enviarLike('like')">👍 Me gusta (<span id="like-count">0</span>)</button>
+                <button onclick="enviarLike('dislike')">👎 No me gusta (<span id="dislike-count">0</span>)</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        const juegoId = 2; // Cambia este ID por el correspondiente a cada juego en la base de datos
+        const user = JSON.parse(localStorage.getItem("usuario"));
+    
+        function cargarComentarios() {
+            fetch('../comentarios.php', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    accion: 'listar',
+                    juego: juegoId
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                const contenedor = document.getElementById("comments-container");
+                contenedor.innerHTML = data.map(c => `
+                    <p><strong>${c.nombre}</strong>: ${c.comentario} <br><small>${c.fecha}</small></p>
+                `).join('');
+            });
+        }
+    
+        function enviarComentario() {
+            if (!user) return alert("Debes iniciar sesión para comentar");
+    
+            const texto = document.getElementById("comment-input").value;
+            if (!texto) return alert("Escribe algo");
+    
+            fetch('../comentarios.php', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    accion: 'agregar',
+                    juego: juegoId,
+                    comentario: texto,
+                    usuario_id: user.id
+                })
+            })
+            .then(res => res.json())
+            .then(() => {
+                document.getElementById("comment-input").value = "";
+                cargarComentarios();
+            });
+        }
+    
+        function enviarLike(tipo) {
+            if (!user) return alert("Debes iniciar sesión para votar");
+    
+            fetch('../likes.php', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    usuario_id: user.id,
+                    juego: juegoId,
+                    tipo: tipo
+                })
+            })
+            .then(res => res.json())
+            .then(() => {
+                contarLikes();
+                alert(`Voto "${tipo}" registrado.`);
+            });
+        }
+    
+        function contarLikes() {
+            fetch('../likes.php', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    accion: 'contar',
+                    juego: juegoId
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.ok) {
+                    document.getElementById('like-count').textContent = data.likes.like;
+                    document.getElementById('dislike-count').textContent = data.likes.dislike;
+                }
+            });
+        }
+    
+        window.onload = () => {
+            cargarComentarios();
+            contarLikes();
+        };
+    </script>
+</body>
+</html>

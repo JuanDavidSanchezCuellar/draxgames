@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil - DraxGames</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #perfil-container {
+            background-color: #1c1c1c;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+        button {
+            background-color: #b1384a;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #9c2f3f88;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="perfil-container">
+        <h2>Mi perfil</h2>
+        <div id="perfil-info"></div>
+        <button onclick="cerrarSesion()">Cerrar sesión</button>
+        <button onclick="window.location.href='index.html'">Volver</button>
+    </div>
+
+    <script>
+        const user = JSON.parse(localStorage.getItem("usuario"));
+        if (!user) {
+            alert("Debes iniciar sesión");
+            location.href = "login.html";
+        } else {
+            document.getElementById("perfil-info").innerHTML = `
+                <p><strong>Nombre:</strong> ${user.nombre}</p>
+                <p><strong>Correo:</strong> ${user.correo}</p>
+            `;
+        }
+
+        function cerrarSesion() {
+            localStorage.removeItem("usuario");
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

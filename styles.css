@@ -1,0 +1,358 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'ND Logos Regular', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    background-color: #000000;
+}
+
+header img {
+    width: auto;
+    max-width: 80%; /* Reduce the maximum width */
+    height: auto;
+    max-height: 300px; /* Limit the height */
+    margin: 0 auto; /* Center the image */
+}
+
+nav {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #222;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none; /* Elimina el subrayado */
+    font-size: 18px;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+nav ul li a:hover {
+    color: #b1384a; /* Highlight color on hover */
+}
+
+main {
+    padding: 20px;
+}
+
+.games-section {
+    margin-bottom: 40px;
+    text-align: center;
+    margin-top:20px;
+}
+
+.games-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.game-item {
+    background-color: #b1384ad8;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-item:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.game-item img {
+    width: 100%;
+    height: auto;
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+.game-item h2 {
+    margin: 10px 0;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+.game-item p {
+    padding: 0 10px 10px;
+    font-size: 12px;
+    color: #fff; /* Color blanco para el texto */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+/* Estilos para el botón de búsqueda */
+nav button {
+    font-family: 'ND Logos Regular', sans-serif;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #b1384ad8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav button:hover {
+    background-color: #9c2f3f88;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Estilos para el botón de inicio */
+nav .inicio-btn {
+    font-family: 'ND Logos Regular', sans-serif;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #b1384ad8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure proper button alignment */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav .inicio-btn:hover {
+    background-color: #9c2f3f88;
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Estilos para el botón de inicio de sesión */
+nav .login-btn {
+    font-family: 'ND Logos Regular', sans-serif;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #b1384ad8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 10px;
+}
+
+nav .login-btn:hover {
+    background-color: #9c2f3f88;
+    transform: scale(1.1);
+}
+
+/* Estilos para la vista previa del juego */
+.game-preview {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    margin-top:20px;
+}
+
+.game-preview iframe {
+    border: 2px solid #b1384a; /* Highlighted border */
+    border-radius: 10px; /* Rounded corners */
+    width: 100%;
+    max-width: 1280px;
+    height: 480px; /* Larger height for better visibility */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+}
+
+/* Botones centrados y organizados en la parte inferior */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between buttons */
+    margin-top: 20px;
+}
+
+.btn-container button, .btn-container a button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #b1384ad8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-container button:hover, .btn-container a button:hover {
+    background-color: #9c2f3f88;
+    transform: scale(1.1);
+}
+
+/* Contenedor principal para dividir contenido y barra lateral */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Sección principal del juego */
+.game-details {
+    flex: 3;
+    text-align: left;
+}
+
+.game-details h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.game-details p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* Barra lateral con juegos en formato horizontal */
+.sidebar {
+    flex: 1;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar h2 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px; /* Space between image and title */
+}
+
+.sidebar ul li img {
+    width: 80px; /* Thumbnail size */
+    height: 60px;
+    border-radius: 5px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #b1384a;
+}
+
+/* Texto centrado */
+.game-details h1, .game-details p {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+    line-height: 1.6;
+    color: #fff;
+}
+
+/* Estilos para los comentarios */
+.comments {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #222; /* Dark background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+}
+
+.comments h2 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.comments iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    border: 2px solid #b1384a; /* Highlighted border */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+}
+
+/* Estilos para la sección de comentarios */
+.comments {
+    text-align: left;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.comments h2 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#comments-container {
+    margin-bottom: 20px;
+}
+
+#comment-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+#comment-input:focus {
+    outline: none;
+    border-color: #b1384a;
+}
+
+.comments button {
+    padding: 10px 20px;
+    background-color: #b1384ad8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.comments button:hover {
+    background-color: #9c2f3f88;
+    transform: scale(1.1);
+}

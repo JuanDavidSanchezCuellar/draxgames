@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro - DraxGames</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #222;
+            padding: 20px;
+            width: 300px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #b1384a;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #9c2f3f88;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            color: #b1384a;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form action="registrar.php" method="POST">
+        <h2>Crear cuenta</h2>
+        <input type="text" name="nombre" placeholder="Nombre" required><br>
+        <input type="email" name="correo" placeholder="Correo electrónico" required><br>
+        <input type="password" name="contrasena" placeholder="Contraseña" required><br>
+        <button type="submit">Registrarse</button>
+        <button type="button" style="margin-top: 10px;" onclick="window.location.href='login.html'">Volver</button>
+        <a href="login.html">Ya tengo cuenta</a>
+    </form>
+</body>
+</html>

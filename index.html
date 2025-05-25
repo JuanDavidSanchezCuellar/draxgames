@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DraxGames</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/images/favicoon.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preload" href="assets/Fonts/ND LOGOS REGULAR.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+    <!-- Añade el estilo de la fuente personalizada -->
+    <style>
+        @font-face {
+            font-family: 'ND Logos Regular';
+            src: url('assets/Fonts/ND LOGOS REGULAR.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="assets/images/banner.png" alt="DraxGames Banner">
+        </a>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#gdevelop" title="Ver juegos de Gdevelop">Gdevelop</a></li>
+            <li><a href="#unity" title="Ver juegos de Unity">Unity</a></li>
+            <li><a href="#mis-juegos" title="Ver mis juegos">Mis Juegos</a></li>
+        </ul>
+        <button onclick="searchGames()" title="Buscar juegos en la página">Buscar</button>
+        <script>
+            const user = JSON.parse(localStorage.getItem("usuario"));
+            if (user) {
+                document.write(`<button onclick="window.location.href='perfil.html'" class="login-btn">${user.nombre}</button>`);
+            } else {
+                document.write(`<button onclick="window.location.href='login.html'" class="login-btn">Iniciar sesión</button>`);
+            }
+        </script>
+        
+    </nav>
+
+    <main>
+        <section id="gdevelop" class="games-section">
+            <h2>Gdevelop</h2>
+            <div class="games-list">
+                <article class="game-item">
+                    <a href="paginas/minecraft-gdevelop.html">
+                        <img src="assets/images/minecraft.png" alt="Minecraft Gdevelop">
+                        <h2>Minecraft Gdevelop</h2>
+                    </a>
+                </article>
+                <article class="game-item">
+                    <a href="paginas/protect-the-egg.html">
+                        <img src="assets/images/protect the egg.png" alt="Protect the Egg">
+                        <h2>Protect the Egg</h2>
+                    </a>
+                </article>
+                <article class="game-item">
+                    <a href="paginas/callofdutty-zombies.html">
+                        <img src="assets/images/callofduttyZ.png" alt="Call Of Dutty Zombies Gdevelop">
+                        <h2>Call Of Dutty Zombies Gdevelop</h2>
+                    </a>
+                </article>
+                <article class="game-item">
+                    <a href="paginas/super-mario-bros.html">
+                        <img src="assets/images/super mario bross.png" alt="Super Mario Bros">
+                        <h2>Super Mario Bros 1985</h2>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <section id="unity" class="games-section">
+            <h2>Unity</h2>
+            <div class="games-list">
+                <!-- Puedes añadir juegos de Unity aquí -->
+            </div>
+        </section>
+
+        <section id="mis-juegos" class="games-section">
+            <h2>Mis Juegos</h2>
+            <div class="games-list">
+                <article class="game-item">
+                    <a href="paginas/pixel-monsters.html">
+                        <img src="assets/images/Pixel monsters.png" alt="Pixel Monsters">
+                        <h2>Pixel Monsters</h2>
+                    </a>
+                </article>
+                <!-- Añade más juegos aquí -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function searchGames() {
+            const searchTerm = prompt("Ingrese el nombre del juego que desea buscar:");
+            if (searchTerm) {
+                alert(`Buscando juegos relacionados con: ${searchTerm}`);
+                // Aquí puedes agregar lógica para filtrar juegos
+            }
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - DraxGames</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        form {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #b1384a;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #9c2f3f88;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #b1384a;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="loginForm" method="POST">
+        <h2>Iniciar sesión</h2>
+        <input type="email" name="correo" placeholder="Correo" required>
+        <input type="password" name="contrasena" placeholder="Contraseña" required>
+        <button type="submit">Ingresar</button>
+        <button type="button" style="margin-top: 10px;" onclick="window.location.href='index.html'">Volver</button>
+        <a href="registro.html">Crear cuenta nueva</a>
+    </form>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const res = await fetch("login.php", {
+                method: "POST",
+                body: formData
+            });
+            const data = await res.json();
+
+            if (data.ok) {
+                localStorage.setItem("usuario", JSON.stringify(data.usuario));
+                alert("Sesión iniciada correctamente");
+                window.location.href = "index.html";
+            } else {
+                alert("Correo o contraseña incorrectos");
+            }
+        });
+    </script>
+</body>
+</html>

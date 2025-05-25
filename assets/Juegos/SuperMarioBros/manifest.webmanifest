@@ -1,0 +1,12 @@
+{
+  "name": "Super Mario Bros Template",
+  "short_name": "Super Mario Bros Template",
+  "id": "com.draxgames.supermariobrosclasis",
+  "description": "The game is a recreation of the classic Super Mario Bros from 1985, you can download and edit it in develop.\n\n\n\nEl juego es una recreación del clásico Super Mario Bros de 1985, lo puedes descargar y editar en develop.",
+  "orientation": "landscape",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "categories": ["games", "entertainment"],
+  "icons": []
+}

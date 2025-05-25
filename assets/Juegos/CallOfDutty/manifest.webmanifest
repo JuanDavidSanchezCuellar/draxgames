@@ -1,0 +1,12 @@
+{
+  "name": "Call of dutty Zombies in Gdevelop",
+  "short_name": "Call of dutty Zombies in Gdevelop",
+  "id": "com.draxgames.codzingdevelop",
+  "description": "es una recreación de call of dutty para que sea editado",
+  "orientation": "landscape",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "categories": ["games", "entertainment"],
+  "icons": []
+}
