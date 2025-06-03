@@ -28,7 +28,7 @@
             <section class="game-details">
                 <h1>Mi Perfil</h1>
                 <p>Bienvenido a tu perfil, aquí puedes gestionar tu cuenta.</p>
-                <!-- Contenido dinámico de PHP -->
+          
                 <?php
                 ?>
             </section>
