@@ -1,6 +1,6 @@
-<!-- filepath: c:\xampp\htdocs\draxgames\perfil.php -->
+
 <?php
-// Inicia el contenido PHP aquí si es necesario
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -30,7 +30,6 @@
                 <p>Bienvenido a tu perfil, aquí puedes gestionar tu cuenta.</p>
                 <!-- Contenido dinámico de PHP -->
                 <?php
-                // Aquí puedes agregar contenido dinámico de PHP
                 ?>
             </section>
         </div>

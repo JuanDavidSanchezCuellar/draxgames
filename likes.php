@@ -25,7 +25,6 @@ try {
         exit;
     }
 
-    // Sección original para registrar el like/dislike
     $usuario = $_POST['usuario_id'] ?? null;
     $juego = $_POST['juego'] ?? null;
     $tipo = $_POST['tipo'] ?? null;

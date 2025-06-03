@@ -1,0 +1,7 @@
+Array
+(
+    [id] => 8
+    [nombre] => Juan David Sanchez
+    [correo] => crackdrax1229@gmail.com
+    [contrasena] => $2y$10$muPWW7gzhyB7Ld2Vma3/FOkEX1/fLwdpayTkbqJxqxZKpqg.1ptwy
+)

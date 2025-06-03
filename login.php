@@ -10,7 +10,7 @@ $stmt->execute([$correo]);
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($usuario && password_verify($contrasena, $usuario['contrasena'])) {
-    // debug temporal
+
 file_put_contents("debug.txt", print_r($usuario, true));
 
     echo json_encode([

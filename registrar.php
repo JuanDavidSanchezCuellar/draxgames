@@ -9,3 +9,4 @@ $stmt = $conexion->prepare("INSERT INTO users (nombre, correo, contrasena) VALUE
 $stmt->execute([$nombre, $correo, $contrasena]);
 
 echo "Usuario registrado correctamente. <a href='login.html'>Iniciar sesión</a>";
+

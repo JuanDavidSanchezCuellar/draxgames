@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
 $dbname = "draxgames";
-$user = "root"; //
-$pass = "1034282951"; // ← Deja esto vacío si no has cambiado nada en XAMPP
+$user = "root";
+$pass = "1034282951";
 
 try {
     $conexion = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
