@@ -6,16 +6,15 @@
     <title>Super Mario Bros 1985</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="icon" href="../assets/images/favicoon.png" type="image/png">
-    <!-- Añade el estilo de la fuente personalizada -->
-    <style>
-        @font-face {
-            font-family: 'ND Logos Regular';
-            src: url('../assets/Fonts/ND LOGOS REGULAR.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-    </style>
 </head>
+<style>
+    @font-face {
+    font-family: 'ND Logos Regular';
+    src: url('../assets/Fonts/ND\ LOGOS\ REGULAR.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+</style>
 <body>
     <header>
         <a href="../index.html">
@@ -94,7 +93,7 @@
         }
     </script>
     <script>
-        const juegoId = 5; // Cambia este ID por el correspondiente a cada juego en la base de datos
+        const juegoId = 5;  
         const user = JSON.parse(localStorage.getItem("usuario"));
     
         function cargarComentarios() {
